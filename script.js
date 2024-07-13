@@ -1,3 +1,7 @@
+// game sound
+var mainAudio = new Audio("./game.mp3"); // inbuilt constructor
+mainAudio.play();
+
 var button = document.querySelectorAll(".grid div"); // selecting all 9 buttons
 var reset = document.querySelector("#reset"); // reset button
 var board = document.querySelector("#board");
@@ -12,14 +16,19 @@ let spaces = Array(9).fill(null); // for alternative moves
 // adding eventListener to all 9 buttons
 Array.from(button).forEach((item) =>
     item.addEventListener("click", (e) => {
+        const id = e.target.id;
         board.style.display = "none";
         reset.style.display = "inline";
-        const id = e.target.id;
+        mainAudio.pause();
+        mainAudio.currentTime = 0;
 
         if (!spaces[id]) {
             // spaces array is null
             spaces[id] = currPlayer; // fill array element
             e.target.innerText = currPlayer; // current player playing his turn
+
+            // sound
+            sound(currPlayer);
 
             // check whether anyone won
             if (win() !== false) {
@@ -51,7 +60,12 @@ Array.from(button).forEach((item) =>
                     board.classList.remove("fun");
                 }
                 board.style.display = "block";
+                // sound
+                var audio = new Audio("./win.mp3"); // inbuilt constructor
+                audio.play();
+                setTimeout(play, 1000);
             } else if (!win() && draw()) {
+                // draw
                 // gif draw
                 document
                     .querySelector("#dudu")
@@ -66,6 +80,10 @@ Array.from(button).forEach((item) =>
                 board.style.background = "#f2c14e";
                 board.classList.add("fun1");
                 board.classList.remove("fun");
+                // sound
+                var audio = new Audio("./draw.mp3"); // inbuilt constructor
+                audio.play();
+                setTimeout(play, 4000);
             }
             currPlayer = currPlayer == X ? O : X; // update current player value
         }
@@ -78,6 +96,20 @@ function draw() {
         if (spaces[i] == null) return false;
     }
     return true;
+}
+
+// sound effects
+function sound(currPlayer) {
+    if (currPlayer == X) {
+        var audio = new Audio("./1.mp3"); // inbuilt constructor
+        audio.play();
+    } else {
+        var audio = new Audio("./2.mp3"); // inbuilt constructor
+        audio.play();
+    }
+}
+function play() {
+    mainAudio.play();
 }
 
 // winning condition
@@ -119,6 +151,10 @@ reset.addEventListener("click", () => {
     board.style.color = "red";
     board.classList.add("fun");
     board.classList.remove("fun1");
+    // sound
+    var audio = new Audio("./reset.mp3"); // inbuilt constructor
+    audio.play();
+    setTimeout(play, 1000);
     // empty all cells"
     Array.from(button).forEach((item) => {
         item.innerText = "";

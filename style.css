@@ -159,30 +159,20 @@ nav ul li {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .grid {
-        display: grid;
-        grid-template-rows: repeat(4, 20vw);
-        grid-template-columns: repeat(3, 20vw);
-    }
-    .X img,
-    .O img {
-        height: 200px;
-        /* width: 150px; */
-    }
-    .fun,
-    .fun1 {
-        font-size: 2rem;
-    }
-}
 
-@media only screen and (orientation: portrait) and (max-width: 555px) {
+
+@media only screen and (orientation: portrait) and (max-width: 600px) {
     html{
         transform: rotate(90deg);
     }
     .box {
         flex-direction: row;
         gap: 0px;
+    }
+    .grid {
+        display: grid;
+        grid-template-rows: repeat(4, 20vw);
+        grid-template-columns: repeat(3, 20vw);
     }
     .fun,
     .fun1 {
