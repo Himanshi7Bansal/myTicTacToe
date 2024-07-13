@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0 minimum-scale = 1"
+        />
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <!-- navbar -->
+        <nav>
+            <ul>
+                <li>myTicTacToe.com</li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <!-- game grid -->
+            <div class="box">
+                <div class="X">
+                    <img
+                        id="bubu"
+                        src="./gif/bubu/play.gif"
+                        alt="Angry bubu"
+                        style="width: 280px"
+                        height="400px"
+                    />
+                    <p id="bubuWin">Player(X) - Bubu</p>
+                </div>
+                <div class="grid">
+                    <div id="0" class="btn bl bt"></div>
+                    <div id="1" class="btn bt"></div>
+                    <div id="2" class="btn bt br"></div>
+                    <div id="3" class="btn bl"></div>
+                    <div id="4" class="btn"></div>
+                    <div id="5" class="btn br"></div>
+                    <p id="board" class="btn fun bl br bb bt">⚔️ Start ⚔️ Fighting</p>
+                    <div id="6" class="btn bl bb"></div>
+                    <div id="7" class="btn bb"></div>
+                    <div id="8" class="btn bb br"></div>
+                </div>
+                <div class="O">
+                    <img
+                        id="dudu"
+                        src="./gif/dudu/play.gif"
+                        alt="Angry dudu"
+                        style="width: 280px"
+                        height="400px"
+                    />
+                    <p id="duduWin">Player(O) - Dudu</p>
+                </div>
+            </div>
+            
+            <!-- reset button -->
+            <div class="box">
+                <button id="reset">RESET</button>
+            </div>
+        </div>
+
+        <!-- script -->
+        <script src="./script.js"></script>
+    </body>
+</html>
